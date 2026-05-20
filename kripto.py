@@ -7,11 +7,6 @@ import pandas as pd
 import pandas_ta as ta
 from typing import Dict, List, Optional, Tuple
 
-# ── BTCTurk API Kimlik Bilgileri ─────────────────────────────────────────
-_PUBLIC_KEY  = "4122b122-111f-46fb-810f-dc3064649eee"
-_PRIVATE_KEY = "tBH6YCT8us2ywXL7tMcQoUktKiEU1SuR"
-_API_BASE    = "https://api.btcturk.com"
-_GRAPH_BASE  = "https://graph.btcturk.com"
 
 # ── Desteklenen Kripto → Pair eşlemesi (BTCTurk TRY çiftleri) ────────────
 KRIPTO_MAP: Dict[str, str] = {
