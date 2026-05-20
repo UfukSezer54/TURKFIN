@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>TürkFin AI</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial; margin: 0; background: #f8fafc; }
+        header { background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; padding: 20px; text-align: center; }
+        .search { width: 80%; max-width: 600px; padding: 12px; margin: 20px auto; border-radius: 50px; border: none; font-size: 18px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .card { background: white; border-radius: 12px; padding: 16px; margin: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.2s; }
+        .card:hover { transform: translateY(-5px); }
+        .red { color: #ef4444; }
+        .green { color: #22c55e; }
+        .orange { color: #f59e0b; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px; text-align: left; }
+        th { background: #1e40af; color: white; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🇹🇷 TürkFin AI</h1>
+        <p>Piyasa Analizi ve Yatırım Fikirleri</p>
+    </header>
+
+    <div class="container">
+        <h2>Bilmen Gerekenler (Bugün)</h2>
+        <div class="card">
+            <strong>📊 Piyasa Özeti:</strong> BIST 100 hafif negatif seyirde. Dikkat edilmesi gereken hisseler: BIMAS ve EREGL güçlü duruş sergiliyor.
+        </div>
+
+        <h2>Popüler Hisseler</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px;">
+            {% for a in analizler %}
+            <div class="card">
+                <h3><a href="/hisse/{{ a.sembol }}">{{ a.sembol }}</a></h3>
+                <h2>{{ a.fiyat }} TL</h2>
+                <p>Değişim: <span class="{{ a.renk }}">{{ a.degisim }}%</span></p>
+                <p>RSI: {{ a.rsi }}</p>
+                <p>{{ a.yorum }}</p>
+                <strong style="color: #1e40af;">Tavsiye: {{ a.tavsiye }}</strong>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
